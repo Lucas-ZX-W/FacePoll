@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A0C29EC0253BB9650046CE15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C29EBF253BB9650046CE15 /* AppDelegate.swift */; };
-		A0C29EC2253BB9650046CE15 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C29EC1253BB9650046CE15 /* ContentView.swift */; };
 		A0C29EC4253BB9670046CE15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0C29EC3253BB9670046CE15 /* Assets.xcassets */; };
 		A0C29EC7253BB9670046CE15 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0C29EC6253BB9670046CE15 /* Preview Assets.xcassets */; };
 		A0C29ECA253BB9670046CE15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0C29EC8253BB9670046CE15 /* Main.storyboard */; };
@@ -19,6 +17,12 @@
 		D2519DFF253BC424002C7E80 /* CameraInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2519DFE253BC424002C7E80 /* CameraInput.swift */; };
 		D2519E04253BCA4A002C7E80 /* Emotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2519E03253BCA4A002C7E80 /* Emotion.swift */; };
 		D2519E0B253BCBEE002C7E80 /* EmotionClassification.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2519E0A253BCBEE002C7E80 /* EmotionClassification.swift */; };
+		D2ADE110253BE380006CAF08 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2ADE10F253BE380006CAF08 /* opencv2.framework */; };
+		D2ADE114253BE3DD006CAF08 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C29EBF253BB9650046CE15 /* AppDelegate.swift */; };
+		D2ADE115253BE3DD006CAF08 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C29EC1253BB9650046CE15 /* ContentView.swift */; };
+		D2ADE12C253BFD86006CAF08 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2ADE123253BECC4006CAF08 /* Accelerate.framework */; };
+		D2ADE12E253BFD95006CAF08 /* OpenCL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2ADE121253BECBF006CAF08 /* OpenCL.framework */; };
+		D2ADE133253BFDDF006CAF08 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D2ADE131253BFDCD006CAF08 /* libc++.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +41,10 @@
 		D2519DFE253BC424002C7E80 /* CameraInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraInput.swift; sourceTree = "<group>"; };
 		D2519E03253BCA4A002C7E80 /* Emotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emotion.swift; sourceTree = "<group>"; };
 		D2519E0A253BCBEE002C7E80 /* EmotionClassification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionClassification.swift; sourceTree = "<group>"; };
+		D2ADE10F253BE380006CAF08 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		D2ADE121253BECBF006CAF08 /* OpenCL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenCL.framework; path = System/Library/Frameworks/OpenCL.framework; sourceTree = SDKROOT; };
+		D2ADE123253BECC4006CAF08 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		D2ADE131253BFDCD006CAF08 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +52,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2ADE110253BE380006CAF08 /* opencv2.framework in Frameworks */,
+				D2ADE12C253BFD86006CAF08 /* Accelerate.framework in Frameworks */,
+				D2ADE133253BFDDF006CAF08 /* libc++.tbd in Frameworks */,
+				D2ADE12E253BFD95006CAF08 /* OpenCL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +67,7 @@
 			children = (
 				A0C29EBE253BB9650046CE15 /* Identity Crisis */,
 				A0C29EBD253BB9650046CE15 /* Products */,
+				D2ADE120253BECBF006CAF08 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,6 +95,7 @@
 				A0C29EC8253BB9670046CE15 /* Main.storyboard */,
 				A0C29ECB253BB9670046CE15 /* Info.plist */,
 				A0C29ECC253BB9670046CE15 /* Identity_Crisis.entitlements */,
+				D2ADE10F253BE380006CAF08 /* opencv2.framework */,
 				A0C29EC5253BB9670046CE15 /* Preview Content */,
 			);
 			path = "Identity Crisis";
@@ -93,6 +107,16 @@
 				A0C29EC6253BB9670046CE15 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D2ADE120253BECBF006CAF08 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D2ADE131253BFDCD006CAF08 /* libc++.tbd */,
+				D2ADE123253BECC4006CAF08 /* Accelerate.framework */,
+				D2ADE121253BECBF006CAF08 /* OpenCL.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +150,7 @@
 				TargetAttributes = {
 					A0C29EBB253BB9640046CE15 = {
 						CreatedOnToolsVersion = 12.0.1;
+						LastSwiftMigration = 1220;
 					};
 				};
 			};
@@ -165,14 +190,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2ADE114253BE3DD006CAF08 /* AppDelegate.swift in Sources */,
+				D2ADE115253BE3DD006CAF08 /* ContentView.swift in Sources */,
 				A0C29ED8253BBE080046CE15 /* EmotionalView.swift in Sources */,
-				A0C29EC2253BB9650046CE15 /* ContentView.swift in Sources */,
-				A0C29EC0253BB9650046CE15 /* AppDelegate.swift in Sources */,
 				A0C29EDF253BD7ED0046CE15 /* FloatingBar.swift in Sources */,
 				A0C29EDB253BC3370046CE15 /* MainTabView.swift in Sources */,
 				D2191D60253BD5CA00095044 /* emotion_detector.mlmodel in Sources */,
-				A0C29EC2253BB9650046CE15 /* ContentView.swift in Sources */,
-				A0C29EC0253BB9650046CE15 /* AppDelegate.swift in Sources */,
 				D2519DFF253BC424002C7E80 /* CameraInput.swift in Sources */,
 				D2519E0B253BCBEE002C7E80 /* EmotionClassification.swift in Sources */,
 				D2519E04253BCA4A002C7E80 /* Emotion.swift in Sources */,
@@ -313,6 +336,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_ENTITLEMENTS = "Identity Crisis/Identity_Crisis.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -320,14 +345,21 @@
 				DEVELOPMENT_TEAM = 9HEUH9ZE2Q;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Identity\\ Crisis",
+				);
 				INFOPLIST_FILE = "Identity Crisis/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				NEW_SETTING = "";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.github.uwdevapp.Identity-Crisis";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -337,6 +369,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_ENTITLEMENTS = "Identity Crisis/Identity_Crisis.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -344,12 +378,18 @@
 				DEVELOPMENT_TEAM = 9HEUH9ZE2Q;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Identity\\ Crisis",
+				);
 				INFOPLIST_FILE = "Identity Crisis/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				NEW_SETTING = "";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.github.uwdevapp.Identity-Crisis";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

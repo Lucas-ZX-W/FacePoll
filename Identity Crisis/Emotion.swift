@@ -12,9 +12,9 @@ enum Emotion: Int, CaseIterable {
     case disgust
     case fear
     case happy
-    case neutral
     case sad
     case surprise
+    case neutral
 }
 
 extension Emotion: CustomStringConvertible {

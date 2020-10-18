@@ -11,9 +11,16 @@ struct ContentView: View {
     @ObservedObject var camera = CameraInput()
     var body: some View {
         VStack {
-            Text(camera.emotion.description)
+            HStack {
+                Text(camera.emotion.description)
+                    .font(.largeTitle)
+                if let image = camera.image {
+                    Image(nsImage: image)
+                }
+            }
             if let error = camera.error {
                 Text(error.localizedDescription)
+                    .foregroundColor(.red)
             }
         }
         .onAppear {
