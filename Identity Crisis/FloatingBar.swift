@@ -8,13 +8,22 @@
 import SwiftUI
 
 struct FloatingBar: View {
+    let creatingNewSession: Bool
+    
     var body: some View {
-        Text("I am fucking floating")
+        HStack {
+            if creatingNewSession {
+                Text("Your participants' emotions:")
+            } else {
+                Text("Your current emotion")
+            }
+//            Text(Emotion(rawValue: ???))
+        }
     }
 }
 
-struct FloatingBar_Previews: PreviewProvider {
-    static var previews: some View {
-        FloatingBar()
-    }
-}
+//struct FloatingBar_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FloatingBar()
+//    }
+//}

@@ -9,19 +9,37 @@ import SwiftUI
 
 struct MainTabView: View {
     var body: some View {
-        TabView {
-            ContentView()
-                .tabItem {
-                    Text("🌐")
-                    Text("Menu")
-                }.padding()
-            
-            EmotionalView()
-                .tabItem {
-                    Text("♥️")
-                    Text("Emotions")
-                }.padding()
-        }
+        CustomMainTabView(
+            tabBarPosition: .top,
+            content: [
+                (
+                    tabText: "Menu",
+                    tabIconName: "🌐",
+                    view: AnyView(ContentView())
+                ),
+                (
+                    tabText: "Statistics",
+                    tabIconName: "📋",
+                    view: AnyView(StatisticsView())
+                ),
+                (
+                    tabText: "Settings",
+                    tabIconName: "⚙️",
+                    view: AnyView(
+                        HStack {
+                            Spacer()
+                            VStack {
+                                Spacer()
+                                Text("Third Tab!")
+                                Spacer()
+                            }
+                            Spacer()
+                        }
+                        .background(Color.yellow)
+                    )
+                )
+            ]
+        )
     }
 }
 
