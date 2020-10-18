@@ -5,9 +5,10 @@ target 'Identity Crisis' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   
-  pod 'Firebase/Database'
-  
   pod 'FirebaseCore'
+  pod 'FirebaseDatabase'
+  
+  
 
   pod 'FirebaseAuth'
 
