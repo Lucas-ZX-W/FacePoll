@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4FC3CC7199E8F2F1AEE1F6D7 /* Pods_Identity_Crisis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CD981D39F7082C1E39914A7 /* Pods_Identity_Crisis.framework */; };
 		A0C29EC4253BB9670046CE15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0C29EC3253BB9670046CE15 /* Assets.xcassets */; };
 		A0C29EC7253BB9670046CE15 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0C29EC6253BB9670046CE15 /* Preview Assets.xcassets */; };
 		A0C29ECA253BB9670046CE15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0C29EC8253BB9670046CE15 /* Main.storyboard */; };
@@ -42,6 +43,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1CD981D39F7082C1E39914A7 /* Pods_Identity_Crisis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Identity_Crisis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C95A0E5702D0631FC0139B1 /* Pods-Identity Crisis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Identity Crisis.release.xcconfig"; path = "Target Support Files/Pods-Identity Crisis/Pods-Identity Crisis.release.xcconfig"; sourceTree = "<group>"; };
+		55C77D48FE03EEA5EF4FD769 /* Pods-Identity Crisis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Identity Crisis.debug.xcconfig"; path = "Target Support Files/Pods-Identity Crisis/Pods-Identity Crisis.debug.xcconfig"; sourceTree = "<group>"; };
 		A0C29EBC253BB9650046CE15 /* Identity Crisis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Identity Crisis.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0C29EBF253BB9650046CE15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0C29EC1253BB9650046CE15 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FC3CC7199E8F2F1AEE1F6D7 /* Pods_Identity_Crisis.framework in Frameworks */,
 				D2ADE110253BE380006CAF08 /* opencv2.framework in Frameworks */,
 				D2ADE12C253BFD86006CAF08 /* Accelerate.framework in Frameworks */,
 				D2ADE133253BFDDF006CAF08 /* libc++.tbd in Frameworks */,
@@ -81,12 +86,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		67A35302F6B827AFCE0FB0A0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				55C77D48FE03EEA5EF4FD769 /* Pods-Identity Crisis.debug.xcconfig */,
+				4C95A0E5702D0631FC0139B1 /* Pods-Identity Crisis.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		74AA0F617D0E754C252CEC28 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1CD981D39F7082C1E39914A7 /* Pods_Identity_Crisis.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A0C29EB3253BB9640046CE15 = {
 			isa = PBXGroup;
 			children = (
 				A0C29EBE253BB9650046CE15 /* Identity Crisis */,
 				A0C29EBD253BB9650046CE15 /* Products */,
-				D2ADE120253BECBF006CAF08 /* Frameworks */,
+				67A35302F6B827AFCE0FB0A0 /* Pods */,
+				74AA0F617D0E754C252CEC28 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -148,9 +172,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A0C29ECF253BB9670046CE15 /* Build configuration list for PBXNativeTarget "Identity Crisis" */;
 			buildPhases = (
+				03839C769F4A2F6ED965A8A3 /* [CP] Check Pods Manifest.lock */,
 				A0C29EB8253BB9640046CE15 /* Sources */,
 				A0C29EB9253BB9640046CE15 /* Frameworks */,
 				A0C29EBA253BB9640046CE15 /* Resources */,
+				E13E71F013344A4CD004A4B3 /* [CP] Embed Pods Frameworks */,
 				A0C29EF3253C25B50046CE15 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -207,6 +233,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		03839C769F4A2F6ED965A8A3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Identity Crisis-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E13E71F013344A4CD004A4B3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Identity Crisis/Pods-Identity Crisis-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Identity Crisis/Pods-Identity Crisis-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Identity Crisis/Pods-Identity Crisis-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A0C29EB8253BB9640046CE15 /* Sources */ = {
@@ -356,6 +424,7 @@
 		};
 		A0C29ED0253BB9670046CE15 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55C77D48FE03EEA5EF4FD769 /* Pods-Identity Crisis.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -391,6 +460,7 @@
 		};
 		A0C29ED1253BB9670046CE15 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C95A0E5702D0631FC0139B1 /* Pods-Identity Crisis.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

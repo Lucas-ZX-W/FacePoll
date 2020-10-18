@@ -7,15 +7,24 @@
 
 import Cocoa
 import SwiftUI
+import FirebaseCore
+import FirebaseDatabase
+
+let database = Database.database().reference()
+
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     var window: NSWindow!
+
     var emotionalWindow: NSWindow!
     var camWindow: NSWindow!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        // Firebase
+        FirebaseApp.configure()
+        Database.database().isPersistenceEnabled = true
         // Create the SwiftUI view that provides the window contents.
         let contentView = MainTabView()
         // For camera testing:
