@@ -3,7 +3,7 @@
 [![PyPi Version](https://img.shields.io/pypi/v/yt2mp3.svg)](https://pypi.python.org/pypi/yt2mp3/)
 [![Python Versions](https://img.shields.io/pypi/pyversions/yt2mp3.svg)](https://pypi.python.org/pypi/yt2mp3/)
 [![David](https://david-dm.org/tterb/Hyde.svg)](https://david-dm.org/tterb/Hyde)
-[![PyUp](https://pyup.io/repos/github/tterb/yt2mp3/shield.svg)](https://pyup.io/account/repos/github/tterb/yt2mp3/)
+
 ## Inspiration
 Don't you just love when professor asks a question in zoom meeting? 
 
