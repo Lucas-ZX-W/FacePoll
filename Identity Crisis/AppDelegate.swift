@@ -7,14 +7,21 @@
 
 import Cocoa
 import SwiftUI
+import Firebase
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     var window: NSWindow!
-
+    
+    override init() {
+        FirebaseApp.configure()
+        Database.database().isPersistenceEnabled = true
+    }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        // Firebase
+        Database.database().reference()
         // Create the SwiftUI view that provides the window contents.
         let contentView = ContentView()
 
