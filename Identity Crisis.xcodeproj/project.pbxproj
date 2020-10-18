@@ -48,7 +48,7 @@
 		1CD981D39F7082C1E39914A7 /* Pods_Identity_Crisis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Identity_Crisis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C95A0E5702D0631FC0139B1 /* Pods-Identity Crisis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Identity Crisis.release.xcconfig"; path = "Target Support Files/Pods-Identity Crisis/Pods-Identity Crisis.release.xcconfig"; sourceTree = "<group>"; };
 		55C77D48FE03EEA5EF4FD769 /* Pods-Identity Crisis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Identity Crisis.debug.xcconfig"; path = "Target Support Files/Pods-Identity Crisis/Pods-Identity Crisis.debug.xcconfig"; sourceTree = "<group>"; };
-		A0C29EBC253BB9650046CE15 /* Identity Crisis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Identity Crisis.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0C29EBC253BB9650046CE15 /* FacePoll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FacePoll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0C29EBF253BB9650046CE15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0C29EC1253BB9650046CE15 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A0C29EC3253BB9670046CE15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 		A0C29EBD253BB9650046CE15 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A0C29EBC253BB9650046CE15 /* Identity Crisis.app */,
+				A0C29EBC253BB9650046CE15 /* FacePoll.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -166,9 +166,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A0C29EBB253BB9640046CE15 /* Identity Crisis */ = {
+		A0C29EBB253BB9640046CE15 /* FacePoll */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A0C29ECF253BB9670046CE15 /* Build configuration list for PBXNativeTarget "Identity Crisis" */;
+			buildConfigurationList = A0C29ECF253BB9670046CE15 /* Build configuration list for PBXNativeTarget "FacePoll" */;
 			buildPhases = (
 				03839C769F4A2F6ED965A8A3 /* [CP] Check Pods Manifest.lock */,
 				A0C29EB8253BB9640046CE15 /* Sources */,
@@ -181,9 +181,9 @@
 			);
 			dependencies = (
 			);
-			name = "Identity Crisis";
+			name = FacePoll;
 			productName = "Identity Crisis";
-			productReference = A0C29EBC253BB9650046CE15 /* Identity Crisis.app */;
+			productReference = A0C29EBC253BB9650046CE15 /* FacePoll.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -214,7 +214,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A0C29EBB253BB9640046CE15 /* Identity Crisis */,
+				A0C29EBB253BB9640046CE15 /* FacePoll */,
 			);
 		};
 /* End PBXProject section */
@@ -520,7 +520,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A0C29ECF253BB9670046CE15 /* Build configuration list for PBXNativeTarget "Identity Crisis" */ = {
+		A0C29ECF253BB9670046CE15 /* Build configuration list for PBXNativeTarget "FacePoll" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A0C29ED0253BB9670046CE15 /* Debug */,
