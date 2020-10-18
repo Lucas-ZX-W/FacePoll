@@ -31,6 +31,12 @@ struct FloatingBar: View {
                         .onDisappear {
                             camera.stop()
                         }
+                        .onReceive(NotificationCenter.default.publisher(for: .emotionalWindowOpen)) { _ in
+                            camera.start()
+                        }
+                        .onReceive(NotificationCenter.default.publisher(for: .emotionalWindowClose)) { _ in
+                            camera.stop()
+                        }
                     // if let image = camera.image {
                     //     Image(nsImage: image)
                     // }

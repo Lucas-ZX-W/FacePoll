@@ -69,7 +69,9 @@ class CameraInput: NSObject, ObservableObject, AVCaptureVideoDataOutputSampleBuf
     }
 
     fileprivate func configureFrontCamera(for captureSession: AVCaptureSession) throws -> (device: AVCaptureDevice, resolution: CGSize) {
-        let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .front)
+        let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(
+            deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .front
+        )
 
         guard let device = deviceDiscoverySession.devices.first else {
             throw NSError(domain: #file, code: 1, userInfo: nil)

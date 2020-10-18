@@ -12,9 +12,13 @@ import FirebaseDatabase
 
 let database = Database.database().reference()
 
+extension Notification.Name {
+    static let emotionalWindowClose = Notification.Name("emotionalWindowClose")
+    static let emotionalWindowOpen = Notification.Name("emotionalWindowOpen")
+}
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
 
     var window: NSWindow!
 
@@ -48,41 +52,59 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func openEmotionalWindow(creatingNewSession: Bool) {
-        if nil == emotionalWindow { // create once !!
-            let chosenView = FloatingBar(creatingNewSession: creatingNewSession)
+        if emotionalWindow == nil { // create once !!
             // Create the preferences window and set content
-            emotionalWindow = NSWindow(
+            let window = NSWindow(
                 contentRect: NSRect(x: 20, y: 20, width: 350, height: 120),
                 styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
                 backing: .buffered,
-                defer: false)
-            emotionalWindow.titleVisibility = .hidden
-            emotionalWindow.center()
-            emotionalWindow.setFrameAutosaveName("Preferences")
-            emotionalWindow.isReleasedWhenClosed = false
-            emotionalWindow.contentView = NSHostingView(rootView: chosenView)
+                defer: false
+            )
+            window.titleVisibility = .hidden
+            window.center()
+
+            let view = FloatingBar(creatingNewSession: creatingNewSession)
+            window.contentView = NSHostingView(rootView: view)
+            window.isReleasedWhenClosed = false
+            window.delegate = self
+
+            emotionalWindow = window
         }
-        emotionalWindow.makeKeyAndOrderFront(nil)
+        NotificationCenter.default.post(name: .emotionalWindowOpen, object: nil)
+        emotionalWindow!.makeKeyAndOrderFront(nil)
     }
     
     @objc func openCamWindow() {
-        if nil == camWindow { // create once !!
-            let chosenView = CamView()
+        if camWindow == nil { // create once !!
             // Create the preferences window and set content
-            camWindow = NSWindow(
+            let window = NSWindow(
                 contentRect: NSRect(x: -20, y: -20, width: 600, height: 80),
                 styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
                 backing: .buffered,
-                defer: false)
-            camWindow.titlebarAppearsTransparent = true
-            camWindow.center()
-            camWindow.setFrameAutosaveName("Preferences")
-            camWindow.isReleasedWhenClosed = false
-            camWindow.contentView = NSHostingView(rootView: chosenView)
-            camWindow.level = .floating
+                defer: false
+            )
+            window.titlebarAppearsTransparent = true
+            window.level = .floating
+            window.center()
+
+            let view = CamView()
+            window.contentView = NSHostingView(rootView: view)
+            window.isReleasedWhenClosed = false
+            window.delegate = self
+
+            camWindow = window
         }
-        camWindow.makeKeyAndOrderFront(nil)
+        camWindow!.makeKeyAndOrderFront(nil)
     }
 
+    func windowWillClose(_ notification: Notification) {
+        guard let window = notification.object as? NSWindow else { return }
+        switch window {
+        case emotionalWindow:
+            NotificationCenter.default.post(name: .emotionalWindowClose, object: nil)
+        default:
+            return
+        }
+    }
 }
 
