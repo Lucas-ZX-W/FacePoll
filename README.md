@@ -2,7 +2,6 @@
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/Lucas-ZX-W/Identity-Crisis/blob/master/LICENSEs)
 [![PyPi Version](https://img.shields.io/pypi/v/yt2mp3.svg)](https://pypi.org/project/deepface/)
 [![Python Versions](https://img.shields.io/pypi/pyversions/yt2mp3.svg)](https://www.python.org/download/releases/3.0/)
-[![TensorflowJS](https://david-dm.org/tterb/Hyde.svg)](https://www.tensorflow.org/js)
 
 ## Inspiration
 Don't you just love when professor asks a question in zoom meeting? 
