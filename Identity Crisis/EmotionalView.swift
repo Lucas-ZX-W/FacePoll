@@ -9,7 +9,14 @@ import SwiftUI
 
 struct EmotionalView: View {
     var body: some View {
-        Text("How am I feeling?")
+        VStack {
+            Text("How am I feeling?")
+            Button(action: {
+                NSApp.sendAction(#selector(AppDelegate.openEmotionalWindow), to: nil, from:nil)
+            }) {
+                Text("Open floaty emotions")
+            }
+        }
     }
 }
 

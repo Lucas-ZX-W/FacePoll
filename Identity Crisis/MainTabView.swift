@@ -14,13 +14,13 @@ struct MainTabView: View {
                 .tabItem {
                     Text("🌐")
                     Text("Menu")
-                }
+                }.padding()
             
             EmotionalView()
                 .tabItem {
                     Text("♥️")
                     Text("Emotions")
-                }
+                }.padding()
         }
     }
 }
