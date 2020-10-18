@@ -10,4 +10,4 @@ $ npm start
 
 ```
 
-`npm start` runs the application. `npm make` builds a release-ready version of the package!
+`npm start` runs the application. `npm make` builds a release-ready version of the package!g
