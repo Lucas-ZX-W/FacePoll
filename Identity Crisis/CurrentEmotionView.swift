@@ -8,59 +8,35 @@
 import SwiftUI
 import Combine
 
-extension CurrentEmotionView {
-    init(isHost: Bool, session: String) {
-        self.init(isHost: isHost, session: session, aggregate: Aggregated(session: session))
-    }
-}
-
 struct CurrentEmotionView: View {
-    let isHost: Bool
     let session: String
     private let id = UUID()
-    @ObservedObject var aggregate: Aggregated
     @ObservedObject var camera = CameraInput()
 
     var mainView: some View {
         VStack {
             Spacer()
             HStack {
-                if isHost {
-                    if let key = aggregate.reactions.max(by: { $0.value < $1.value })?.key {
-                        HStack {
-                            Text("Your participants' emotion:")
-                                .font(.system(size: 20))
-                                .fontWeight(.semibold)
-                            Text(key.description)
-                                .font(.system(size: 60))
-                        }
-                    } else {
-                        Text("Ready for today?")
-                            .font(.system(size: 20))
-                            .fontWeight(.semibold)
+                Text("Your current emotion:")
+                    .font(.system(size: 20))
+                    .fontWeight(.semibold)
+                Text(camera.emotion.description)
+                    .font(.system(size: 60))
+                    .onAppear {
+                        startReporting()
                     }
-                } else {
-                    Text("Your current emotion:")
-                        .font(.system(size: 20))
-                        .fontWeight(.semibold)
-                    Text(camera.emotion.description)
-                        .font(.system(size: 60))
-                        .onAppear {
-                            startReporting()
-                        }
-                        .onDisappear {
-                            stopReporting()
-                        }
-                        .onReceive(NotificationCenter.default.publisher(for: .emotionalWindowOpen)) { _ in
-                            startReporting()
-                        }
-                        .onReceive(NotificationCenter.default.publisher(for: .emotionalWindowClose)) { _ in
-                            stopReporting()
-                        }
-                    // if let image = camera.image {
-                    //     Image(nsImage: image)
-                    // }
-                }
+                    .onDisappear {
+                        stopReporting()
+                    }
+                    .onReceive(NotificationCenter.default.publisher(for: .emotionalWindowOpen)) { _ in
+                        startReporting()
+                    }
+                    .onReceive(NotificationCenter.default.publisher(for: .emotionalWindowClose)) { _ in
+                        stopReporting()
+                    }
+                // if let image = camera.image {
+                //     Image(nsImage: image)
+                // }
             }
             Spacer()
         }
@@ -105,8 +81,8 @@ struct CurrentEmotionView: View {
 struct FloatingBar_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            CurrentEmotionView(isHost: true, session: "test")
-            CurrentEmotionView(isHost: false, session: "test")
+            CurrentEmotionView(session: "test")
+            CurrentEmotionView(session: "test")
         }
     }
 }
