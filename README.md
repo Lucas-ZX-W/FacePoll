@@ -1,7 +1,11 @@
 # FacePoll
 
 ## Inspiration
-Don't you just love when professor asks a question in zoom meeting? Camera's not on, mic's muted, you thought, "I'm good then". But is this really helping **you**? When confused by the meeting materials, most students are concerned whether their questions are important enough to ask, especially in front of a large group. To recreate the atmosphere in which the meeting presenter has a better, instant understandings of the attendee's feelings, we introduce the smart meeting analyzing feedback tool FacePoll.
+Don't you just love when professor asks a question in zoom meeting? 
+
+Camera's not on, mic's muted, you thought, "I'm good then". 
+
+But is this really helping **you**? When confused by the meeting materials, most students are concerned whether their questions are important enough to ask, especially in front of a large group. To recreate the atmosphere in which the meeting presenter has a better, instant understandings of the attendee's feelings, we introduce the smart meeting analyzing feedback tool FacePoll.
 
 ## What it does
 FacePoll is designed for bringing both the audiences and lecturers the pre-COVID lecturing experience with synchronous, model-trained precision feedbacks. 
