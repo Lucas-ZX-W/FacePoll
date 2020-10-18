@@ -25,6 +25,7 @@
 		D2ADE13A253C306E006CAF08 /* emotion_detector.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = A0C29EF4253C29730046CE15 /* emotion_detector.mlmodel */; };
 		D2ADE13C253C3084006CAF08 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2ADE13B253C3084006CAF08 /* Accelerate.framework */; };
 		D2ADE13E253C3089006CAF08 /* OpenCL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2ADE13D253C3089006CAF08 /* OpenCL.framework */; };
+		D2ADE152253C3212006CAF08 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2ADE151253C3212006CAF08 /* GoogleService-Info.plist */; };
 		D2B21B35253C302000D3CB10 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D2B21B34253C301900D3CB10 /* libc++.tbd */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		D2ADE10F253BE380006CAF08 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		D2ADE13B253C3084006CAF08 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		D2ADE13D253C3089006CAF08 /* OpenCL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenCL.framework; path = System/Library/Frameworks/OpenCL.framework; sourceTree = SDKROOT; };
+		D2ADE151253C3212006CAF08 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D2B21B34253C301900D3CB10 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -139,6 +141,7 @@
 				A0C29EF4253C29730046CE15 /* emotion_detector.mlmodel */,
 				A0C29EC8253BB9670046CE15 /* Main.storyboard */,
 				A0C29ECB253BB9670046CE15 /* Info.plist */,
+				D2ADE151253C3212006CAF08 /* GoogleService-Info.plist */,
 				A0C29ECC253BB9670046CE15 /* Identity_Crisis.entitlements */,
 				D2ADE10F253BE380006CAF08 /* opencv2.framework */,
 				A0C29EC5253BB9670046CE15 /* Preview Content */,
@@ -216,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0C29ECA253BB9670046CE15 /* Main.storyboard in Resources */,
+				D2ADE152253C3212006CAF08 /* GoogleService-Info.plist in Resources */,
 				A0C29EC7253BB9670046CE15 /* Preview Assets.xcassets in Resources */,
 				A0C29EC4253BB9670046CE15 /* Assets.xcassets in Resources */,
 			);
