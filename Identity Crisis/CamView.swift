@@ -9,11 +9,23 @@ import SwiftUI
 
 struct CamView: View {
     @ObservedObject var camera = CameraInput()
+    @ObservedObject var fakeData = Aggregated(session: "hello", debug: true)
     var body: some View {
         VStack {
-            Text(camera.emotion.description)
+            HStack {
+                Text(camera.emotion.description)
+                if let image = camera.image {
+                    Image(nsImage: image)
+                }
+            }
             if let error = camera.error {
                 Text(error.localizedDescription)
+            }
+            List(Emotion.allCases) { key in
+                VStack {
+                    Text(key.description)
+                    Text("\((fakeData.reactions[key] ?? 0) * 100)%")
+                }
             }
         }
         .onAppear {

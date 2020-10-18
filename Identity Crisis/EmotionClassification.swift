@@ -52,7 +52,7 @@ enum EmotionClassification {
                     print()
                 }
                 let filtered = results.enumerated()
-                    .filter { $0.element.isNormal && $0.element > 0.4 }
+                    .filter { $0.element.isNormal && $0.element > 0.3 }
                 guard !filtered.isEmpty else {
 //                     "no emotion detected"
                     return

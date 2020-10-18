@@ -17,6 +17,12 @@ enum Emotion: Int, CaseIterable {
     case neutral
 }
 
+extension Emotion: Identifiable {
+    var id: Int {
+        return rawValue
+    }
+}
+
 extension Emotion: CustomStringConvertible {
     var description: String {
         switch self {

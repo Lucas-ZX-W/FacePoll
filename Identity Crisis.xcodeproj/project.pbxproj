@@ -27,6 +27,7 @@
 		D2ADE13C253C3084006CAF08 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2ADE13B253C3084006CAF08 /* Accelerate.framework */; };
 		D2ADE13E253C3089006CAF08 /* OpenCL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2ADE13D253C3089006CAF08 /* OpenCL.framework */; };
 		D2ADE152253C3212006CAF08 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2ADE151253C3212006CAF08 /* GoogleService-Info.plist */; };
+		D2ADE154253C3482006CAF08 /* Aggregated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2ADE153253C3482006CAF08 /* Aggregated.swift */; };
 		D2B21B35253C302000D3CB10 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D2B21B34253C301900D3CB10 /* libc++.tbd */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		D2ADE13B253C3084006CAF08 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		D2ADE13D253C3089006CAF08 /* OpenCL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenCL.framework; path = System/Library/Frameworks/OpenCL.framework; sourceTree = SDKROOT; };
 		D2ADE151253C3212006CAF08 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D2ADE153253C3482006CAF08 /* Aggregated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aggregated.swift; sourceTree = "<group>"; };
 		D2B21B34253C301900D3CB10 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -139,6 +141,7 @@
 				D2519DFE253BC424002C7E80 /* CameraInput.swift */,
 				D2519E0A253BCBEE002C7E80 /* EmotionClassification.swift */,
 				D2519E03253BCA4A002C7E80 /* Emotion.swift */,
+				D2ADE153253C3482006CAF08 /* Aggregated.swift */,
 				A0C29EC3253BB9670046CE15 /* Assets.xcassets */,
 				A0C29EF4253C29730046CE15 /* emotion_detector.mlmodel */,
 				A0C29F0E253C36750046CE15 /* emotion_detector.swift */,
@@ -279,6 +282,7 @@
 			files = (
 				D2ADE139253C3064006CAF08 /* CamView.swift in Sources */,
 				D2ADE114253BE3DD006CAF08 /* AppDelegate.swift in Sources */,
+				D2ADE154253C3482006CAF08 /* Aggregated.swift in Sources */,
 				D2ADE115253BE3DD006CAF08 /* ContentView.swift in Sources */,
 				D2ADE13A253C306E006CAF08 /* emotion_detector.mlmodel in Sources */,
 				A0C29ED8253BBE080046CE15 /* StatisticsView.swift in Sources */,
