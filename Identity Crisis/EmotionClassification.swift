@@ -129,7 +129,7 @@ extension EmotionClassification {
                 let pointer = emotion.dataPointer.bindMemory(to: Float32.self, capacity: 7)
                 let results = Array(UnsafeBufferPointer(start: pointer, count: 7))
                 if results.first?.isNormal == true {
-                    for emotion in results.enumerated().sorted(by: { $0.element > $1.element }) {
+                    for emotion in results.enumerated().prefix(7).sorted(by: { $0.element > $1.element }) {
                         print("\(Emotion(rawValue: emotion.offset)!) \(emotion.element * 100)%")
                     }
                     print()

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AggregateView: View {
-    @ObservedObject var fakeData = Aggregated(session: "hello", debug: true)
+    @ObservedObject var fakeData = Aggregated(session: "test")
 
     var mainView: some View {
         GeometryReader { geo in

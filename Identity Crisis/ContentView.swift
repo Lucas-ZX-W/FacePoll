@@ -53,7 +53,7 @@ struct ContentView: View {
                 //     NSApp.sendAction(#selector(AppDelegate.openEmotionalWindow), to: nil, from:nil)
                 // })
                 Button(action: {
-                    NSApp.sendAction(#selector(AppDelegate.openEmotionalWindow), to: nil, from: nil)
+                    NSApp.sendAction(#selector(AppDelegate.openEmotionalWindow), to: nil, from: [true, "test"])
                     NSApp.sendAction(#selector(AppDelegate.openAggregateWindow), to: nil, from: nil)
                 }) {
                     Text("Create a session")
@@ -67,7 +67,7 @@ struct ContentView: View {
                 .buttonStyle(PlainButtonStyle())
                 
                 Button(action: {
-                    NSApp.sendAction(#selector(AppDelegate.openEmotionalWindow), to: nil, from: nil)
+                    NSApp.sendAction(#selector(AppDelegate.openEmotionalWindow), to: nil, from: [false, "test"])
                 }) {
                     Text("Join a session")
                         .font(.system(size: 20))

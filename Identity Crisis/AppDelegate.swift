@@ -51,7 +51,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         // Insert code here to tear down your application
     }
     
-    @objc func openEmotionalWindow(creatingNewSession: Bool) {
+    @objc func openEmotionalWindow(sender: [Any]) {
         if emotionalWindow == nil { // create once !!
             // Create the preferences window and set content
             let window = NSWindow(
@@ -63,15 +63,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             window.titleVisibility = .hidden
             window.center()
 
-            let view = CurrentEmotionView(creatingNewSession: creatingNewSession)
-            window.contentView = NSHostingView(rootView: view)
             window.isReleasedWhenClosed = false
             window.delegate = self
 
             emotionalWindow = window
         }
-        NotificationCenter.default.post(name: .emotionalWindowOpen, object: nil)
+
+        let view = CurrentEmotionView(isHost: sender[0] as! Bool, session: sender[1] as! String)
+        emotionalWindow.contentView = NSHostingView(rootView: view)
         emotionalWindow!.makeKeyAndOrderFront(nil)
+        NotificationCenter.default.post(name: .emotionalWindowOpen, object: nil)
     }
     
     @objc func openAggregateWindow() {

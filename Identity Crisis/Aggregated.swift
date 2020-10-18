@@ -17,9 +17,9 @@ class Aggregated: ObservableObject {
             guard let value = snapshot.value as? [String : Int] else { return }
             let total = Double(value.count)
             self.reactions = Dictionary(grouping: value.values) { element in
-                Emotion(rawValue: element)!
+                Emotion(rawValue: element) ?? .neutral
             }.mapValues {
-                Double($0.count) / total * 100
+                Double($0.count) / total
             }
         }
         guard debug else { return }
