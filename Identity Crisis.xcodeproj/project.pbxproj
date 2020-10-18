@@ -14,6 +14,7 @@
 		A0C29ED8253BBE080046CE15 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C29ED7253BBE080046CE15 /* StatisticsView.swift */; };
 		A0C29EDB253BC3370046CE15 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C29EDA253BC3370046CE15 /* MainTabView.swift */; };
 		A0C29EDF253BD7ED0046CE15 /* FloatingBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C29EDE253BD7ED0046CE15 /* FloatingBar.swift */; };
+		A0C29F0F253C36750046CE15 /* emotion_detector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C29F0E253C36750046CE15 /* emotion_detector.swift */; };
 		D2519DFF253BC424002C7E80 /* CameraInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2519DFE253BC424002C7E80 /* CameraInput.swift */; };
 		D2519E04253BCA4A002C7E80 /* Emotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2519E03253BCA4A002C7E80 /* Emotion.swift */; };
 		D2519E0B253BCBEE002C7E80 /* EmotionClassification.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2519E0A253BCBEE002C7E80 /* EmotionClassification.swift */; };
@@ -60,6 +61,7 @@
 		A0C29EE3253C08760046CE15 /* CustomMainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMainTabView.swift; sourceTree = "<group>"; };
 		A0C29EEE253C25180046CE15 /* CamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamView.swift; sourceTree = "<group>"; };
 		A0C29EF4253C29730046CE15 /* emotion_detector.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = emotion_detector.mlmodel; sourceTree = "<group>"; };
+		A0C29F0E253C36750046CE15 /* emotion_detector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = emotion_detector.swift; sourceTree = "<group>"; };
 		D2519DFE253BC424002C7E80 /* CameraInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraInput.swift; sourceTree = "<group>"; };
 		D2519E03253BCA4A002C7E80 /* Emotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emotion.swift; sourceTree = "<group>"; };
 		D2519E0A253BCBEE002C7E80 /* EmotionClassification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionClassification.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				D2519E03253BCA4A002C7E80 /* Emotion.swift */,
 				A0C29EC3253BB9670046CE15 /* Assets.xcassets */,
 				A0C29EF4253C29730046CE15 /* emotion_detector.mlmodel */,
+				A0C29F0E253C36750046CE15 /* emotion_detector.swift */,
 				A0C29EC8253BB9670046CE15 /* Main.storyboard */,
 				A0C29ECB253BB9670046CE15 /* Info.plist */,
 				D2ADE151253C3212006CAF08 /* GoogleService-Info.plist */,
@@ -283,6 +286,7 @@
 				A0C29EDB253BC3370046CE15 /* MainTabView.swift in Sources */,
 				D2519DFF253BC424002C7E80 /* CameraInput.swift in Sources */,
 				D2519E0B253BCBEE002C7E80 /* EmotionClassification.swift in Sources */,
+				A0C29F0F253C36750046CE15 /* emotion_detector.swift in Sources */,
 				D2ADE138253C3061006CAF08 /* CustomMainTabView.swift in Sources */,
 				D2519E04253BCA4A002C7E80 /* Emotion.swift in Sources */,
 			);
@@ -336,6 +340,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				COREML_CODEGEN_LANGUAGE = None;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -397,6 +402,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				COREML_CODEGEN_LANGUAGE = None;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -428,6 +434,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Identity Crisis/Identity_Crisis.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				COREML_CODEGEN_LANGUAGE = None;
 				DEVELOPMENT_ASSET_PATHS = "\"Identity Crisis/Preview Content\"";
 				DEVELOPMENT_TEAM = 9HEUH9ZE2Q;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -468,6 +475,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Identity Crisis/Identity_Crisis.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				COREML_CODEGEN_LANGUAGE = None;
 				DEVELOPMENT_ASSET_PATHS = "\"Identity Crisis/Preview Content\"";
 				DEVELOPMENT_TEAM = 9HEUH9ZE2Q;
 				ENABLE_HARDENED_RUNTIME = YES;

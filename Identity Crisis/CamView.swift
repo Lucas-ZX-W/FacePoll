@@ -24,7 +24,6 @@ struct CamView: View {
         }
         .frame(maxWidth: .infinity,
                maxHeight: .infinity)
-        Text("Yeet")
     }
 }
 
