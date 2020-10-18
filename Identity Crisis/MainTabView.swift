@@ -20,7 +20,8 @@ struct MainTabView: View {
                 (
                     tabText: "Statistics",
                     tabIconName: "📋",
-                    view: AnyView(StatisticsView())
+                    view: AnyView(StatisticsView()
+                                    .environmentObject(History.shared))
                 ),
                 (
                     tabText: "Settings",

@@ -78,25 +78,26 @@ struct CurrentEmotionView: View {
         }
     }
 
-    @State var token: AnyCancellable? = nil
+    @State var tokens: [AnyCancellable] = []
     func startReporting() {
-        guard token == nil else { return }
+        guard tokens.isEmpty else { return }
         camera.start()
-        token = camera.$emotion.collect(10).sink { (output) in
+        tokens.append(camera.$emotion.collect(10).sink { (output) in
             Dictionary(grouping: output) { $0 }
                 .mapValues { $0.count }
                 .max { $0.value < $1.value }
                 .map {
                     database.child(session).child(id.uuidString)
                         .setValue($0.key.rawValue)
+                    History.shared.record($0.key)
                 }
-        }
+        })
     }
 
     func stopReporting() {
         camera.stop()
-        token?.cancel()
-        token = nil
+        tokens.forEach { $0.cancel() }
+        tokens.removeAll()
         database.child(session).child(id.uuidString).removeValue()
     }
 }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct StatisticsView: View {
     @ObservedObject var fakeData = Aggregated(session: "hello", debug: true)
+    @EnvironmentObject var history: History
     
     var body: some View {
         GeometryReader { geo in
@@ -22,7 +23,7 @@ struct StatisticsView: View {
                             Spacer()
                             RoundedRectangle(cornerRadius: 5)
                                 .fill(emo.color)
-                                .frame(height: CGFloat(fakeData.fakeStats[emo]!) * geo.size.height)
+                                .frame(height: CGFloat(history.normalized[emo]!) * geo.size.height)
                             Text(emo.description)
                                 .font(.system(size: 35))
                         }
@@ -40,5 +41,6 @@ struct StatisticsView: View {
 struct StatisticsView_Previews: PreviewProvider {
     static var previews: some View {
         StatisticsView()
+            .environmentObject(History.shared)
     }
 }
