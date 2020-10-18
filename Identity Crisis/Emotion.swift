@@ -16,6 +16,10 @@ enum Emotion: Int, CaseIterable {
     case neutral
     case sad
     case surprise
+
+    static var allCases: [Emotion] = [
+        .fear, .angry, .disgust, .sad, .neutral, .surprise, .happy 
+    ]
 }
 
 extension Emotion: Identifiable {

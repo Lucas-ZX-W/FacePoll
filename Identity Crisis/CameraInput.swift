@@ -44,6 +44,8 @@ class CameraInput: NSObject, ObservableObject, AVCaptureVideoDataOutputSampleBuf
         session?.stopRunning()
     }
 
+    deinit { stop() }
+
     private func highestResolutionFormat(for device: AVCaptureDevice) -> (format: AVCaptureDevice.Format, resolution: CGSize)? {
         var highestResolutionFormat: AVCaptureDevice.Format? = nil
         var highestResolutionDimensions = CMVideoDimensions(width: 0, height: 0)
