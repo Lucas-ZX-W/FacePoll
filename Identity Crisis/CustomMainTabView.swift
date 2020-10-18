@@ -9,15 +9,16 @@
 import SwiftUI
 
 public extension Color {
-    
+    static let foregroundColor = Color(red: 22/255, green: 67/255, blue: 86/255)
+
     #if os(macOS)
-//    static let backgroundColor = Color(NSColor.windowBackgroundColor)
-    static let backgroundColor: Color = Color(red: 231/255, green: 231/255, blue: 231/255)
-//    static let secondaryBackgroundColor = Color(NSColor.controlBackgroundColor)
-    static let secondaryBackgroundColor: Color = Color(red: 231/255, green: 231/255, blue: 231/255)
+    // static let backgroundColor = Color(NSColor.windowBackgroundColor)
+    static let backgroundColor = Color(red: 231/255, green: 231/255, blue: 231/255)
+    // static let secondaryBackgroundColor = Color(NSColor.controlBackgroundColor)
+    static let secondaryBackgroundColor = Color(red: 231/255, green: 231/255, blue: 231/255)
     #else
-    static let backgroundColor = Color(UIColor.systemBackground)
-    static let secondaryBackgroundColor = Color(UIColor.secondarySystemBackground)
+    static let backgroundColor = Color(uiColor: UIColor.systemBackground)
+    static let secondaryBackgroundColor = Color(uiColor: UIColor.secondarySystemBackground)
     #endif
 }
 
@@ -42,17 +43,16 @@ struct CustomMainTabView: View {
     }
     
     public var tabBar: some View {
-        
         HStack {
             Spacer()
             ForEach(0..<tabText.count) { index in
                 HStack {
-//                    Image( self.tabIconNames[index])
+                    // Image( self.tabIconNames[index])
                     Text(self.tabIconNames[index]).font(.system(size: 30))
                     Text(self.tabText[index])
                 }
                 .padding()
-                .foregroundColor(self.selection == index ? Color.accentColor : Color.primary)
+                .foregroundColor(self.selection == index ? .accentColor : .black)
                 .background(Color.secondaryBackgroundColor)
                 .onTapGesture {
                     self.selection = index
@@ -73,10 +73,8 @@ struct CustomMainTabView: View {
         .zIndex(99) // Raised so that shadow is visible above view backgrounds
     }
     public var body: some View {
-        
         VStack(spacing: 0) {
-            
-            if (self.tabBarPosition == .top) {
+            if tabBarPosition == .top {
                 tabBar
             }
             
@@ -84,7 +82,7 @@ struct CustomMainTabView: View {
                 .padding(0)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             
-            if (self.tabBarPosition == .bottom) {
+            if tabBarPosition == .bottom {
                 tabBar
             }
         }

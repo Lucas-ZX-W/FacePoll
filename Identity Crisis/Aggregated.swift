@@ -23,25 +23,31 @@ class Aggregated: ObservableObject {
             }
         }
         guard debug else { return }
-        timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { _ in
-            // https://stackoverflow.com/a/8064754
-            var nums = [0, 100]
-            for _ in 0..<6 {
-                nums.append(Int.random(in: 0...100))
-            }
-            nums.sort()
-            self.reactions = Dictionary(
-                uniqueKeysWithValues:
-                    zip(nums.dropFirst(), nums.dropLast())
-                    .map { $0 - $1 }
-                    .enumerated()
-                    .map { (Emotion(rawValue: $0.offset)!, Double($0.element) / 100) }
-            )
+        timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) {
+            [weak self] _ in guard let self = self else { return }
+            self.reactions = self.fakeEmotionDistribution()
+            // self.fakeStats = self.fakeEmotionDistribution()
         }
     }
 
     deinit {
         timer?.invalidate()
+    }
+
+    /// https://stackoverflow.com/a/8064754
+    private func fakeEmotionDistribution() -> [Emotion: Double] {
+        var nums = [0, 100]
+        for _ in 0..<6 {
+            nums.append(Int.random(in: 0...100))
+        }
+        nums.sort()
+        return Dictionary(
+            uniqueKeysWithValues:
+                zip(nums.dropFirst(), nums.dropLast())
+                .map { $0 - $1 }
+                .enumerated()
+                .map { (Emotion(rawValue: $0.offset)!, Double($0.element) / 100) }
+        )
     }
 
     @Published var reactions: [Emotion: Double] = [:]

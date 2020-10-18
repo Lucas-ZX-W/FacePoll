@@ -8,29 +8,46 @@
 import SwiftUI
 
 struct CamView: View {
-//    @ObservedObject var camera = CameraInput()
     @ObservedObject var fakeData = Aggregated(session: "hello", debug: true)
-    
-    var body: some View {
-        HStack(spacing: 0) {
-            ForEach(Emotion.allCases) { key in
-                Text(key.description)
-                    .font(.system(size: 30))
-                    .frame(width: (CGFloat((fakeData.reactions[key] ?? 0)) * 600), height: 80)
-                    .background(key.color)
+
+    var mainView: some View {
+        GeometryReader { geo in
+            if fakeData.reactions.isEmpty {
+                HStack {
+                    Spacer()
+                    VStack {
+                        Spacer()
+                        Text("Waiting for participants...")
+                            .font(.largeTitle)
+                        Spacer()
+                    }
+                    Spacer()
+                }
+            } else {
+                HStack(spacing: 0) {
+                    ForEach(Emotion.allCases) { key in
+                        Text(key.description)
+                            .font(.system(size: 30))
+                            .frame(width: CGFloat(fakeData.reactions[key] ?? 0) * geo.size.width,
+                                   height: geo.size.height)
+                            .background(key.color)
+                    }
+                    .animation(.easeInOut)
+                    .transition(.slide)
+                }
             }
-            .animation(.easeInOut)
-            .transition(.slide)
-        }.frame(idealWidth: 600, idealHeight: 80)
-//        VStack {
-//            List(Emotion.allCases) { key in
-//                VStack {
-//                    Text(key.description)
-//                    Text("\((fakeData.reactions[key] ?? 0) * 100)%")
-//                }
-//            }
-//
-//        }.frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+        .frame(idealWidth: 600, idealHeight: 80)
+    }
+
+    var body: some View {
+        if #available(OSX 11.0, *) {
+            mainView
+                .ignoresSafeArea()
+        } else {
+            mainView
+                .edgesIgnoringSafeArea(.all)
+        }
     }
 }
 

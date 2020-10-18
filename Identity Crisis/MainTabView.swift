@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainTabView: View {
-    var body: some View {
+    var mainView: some View {
         CustomMainTabView(
             tabBarPosition: .top,
             content: [
@@ -35,11 +35,21 @@ struct MainTabView: View {
                             }
                             Spacer()
                         }
-                        .background(Color.yellow)
+                        .background(Color.yellow.opacity(0.5))
                     )
                 )
             ]
         )
+    }
+
+    var body: some View {
+        if #available(OSX 11.0, *) {
+            mainView
+                .ignoresSafeArea()
+        } else {
+            mainView
+                .edgesIgnoringSafeArea(.all)
+        }
     }
 }
 

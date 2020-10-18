@@ -35,11 +35,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             contentRect: NSRect(x: 0, y: 0, width: 300, height: 250),
             styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
             backing: .buffered, defer: false)
-        window.isReleasedWhenClosed = false
+        window.titlebarAppearsTransparent = true
         window.center()
         window.setFrameAutosaveName("Main Window")
+        window.isReleasedWhenClosed = false
         window.contentView = NSHostingView(rootView: contentView)
-        window.backgroundColor = .white
         window.makeKeyAndOrderFront(nil)
     }
 
@@ -48,7 +48,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func openEmotionalWindow(creatingNewSession: Bool) {
-        if nil == emotionalWindow {      // create once !!
+        if nil == emotionalWindow { // create once !!
             let chosenView = FloatingBar(creatingNewSession: creatingNewSession)
             // Create the preferences window and set content
             emotionalWindow = NSWindow(
@@ -56,18 +56,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
                 backing: .buffered,
                 defer: false)
+            emotionalWindow.titleVisibility = .hidden
             emotionalWindow.center()
             emotionalWindow.setFrameAutosaveName("Preferences")
             emotionalWindow.isReleasedWhenClosed = false
             emotionalWindow.contentView = NSHostingView(rootView: chosenView)
-            emotionalWindow.backgroundColor = .white
         }
         emotionalWindow.makeKeyAndOrderFront(nil)
     }
-
     
     @objc func openCamWindow() {
-        if nil == camWindow {      // create once !!
+        if nil == camWindow { // create once !!
             let chosenView = CamView()
             // Create the preferences window and set content
             camWindow = NSWindow(
@@ -75,11 +74,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
                 backing: .buffered,
                 defer: false)
+            camWindow.titlebarAppearsTransparent = true
             camWindow.center()
             camWindow.setFrameAutosaveName("Preferences")
             camWindow.isReleasedWhenClosed = false
             camWindow.contentView = NSHostingView(rootView: chosenView)
-            camWindow.backgroundColor = .white
+            camWindow.level = .floating
         }
         camWindow.makeKeyAndOrderFront(nil)
     }

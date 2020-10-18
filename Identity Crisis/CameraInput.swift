@@ -7,13 +7,11 @@
 
 import Foundation
 import Combine
-import Vision
 import AVKit
 
 class CameraInput: NSObject, ObservableObject, AVCaptureVideoDataOutputSampleBufferDelegate {
     @Published var error: Error? = nil
     @Published var emotion: Emotion = .neutral
-    @Published var image: NSImage? = nil
 
     // AVCapture variables to hold sequence data
     public private(set) lazy var session: AVCaptureSession? = {
@@ -125,96 +123,66 @@ class CameraInput: NSObject, ObservableObject, AVCaptureVideoDataOutputSampleBuf
     // Handle delegate method callback on receiving a sample buffer.
     public func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
 
-        var requestHandlerOptions: [VNImageOption: AnyObject] = [:]
-
-        let cameraIntrinsicData = CMGetAttachment(sampleBuffer, key: kCMSampleBufferAttachmentKey_CameraIntrinsicMatrix, attachmentModeOut: nil)
-        if cameraIntrinsicData != nil {
-            requestHandlerOptions[.cameraIntrinsics] = cameraIntrinsicData
-        }
-
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
             print("Failed to obtain a CVPixelBuffer for the current output frame.")
             return
         }
 
-        let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer,
-                                                        // orientation: exifOrientation,
-                                                        options: requestHandlerOptions)
-        do {
-            try imageRequestHandler.perform([VNDetectFaceRectanglesRequest { (request, error) in
-                if let error = error {
-                    self.setError("FaceDetection error:", error)
+        let cameraIntrinsics = CMGetAttachment(
+            sampleBuffer,
+            key: kCMSampleBufferAttachmentKey_CameraIntrinsicMatrix,
+            attachmentModeOut: nil
+        )
+        EmotionClassification
+            .auto
+            .classify(
+                image: pixelBuffer,
+                size: captureDeviceResolution,
+                cameraIntrinsicData: cameraIntrinsics
+            ) { result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let emotion):
+                        self.emotion = emotion
+                    case .failure(let error):
+                        self.setError("Failed to perform classification:", error)
+                    }
                 }
-                guard let faceDetectionRequest = request as? VNDetectFaceRectanglesRequest,
-                      let results = faceDetectionRequest.results as? [VNFaceObservation] else {
-                    return
-                }
+            }
 
-                if let faceObservation = results.first {
-                    let displaySize = self.captureDeviceResolution
-                    let faceBounds = VNImageRectForNormalizedRect(
-                        faceObservation.boundingBox,
-                        Int(displaySize.width), Int(displaySize.height)
-                    )
-                    EmotionClassification
-                        .classify(image: pixelBuffer, faceBounds: faceBounds) {
-                            (image, result) in
-                            DispatchQueue.main.async {
-                                self.image = image
-                                switch result {
-                                case .success(let emotion):
-                                    self.emotion = emotion
-                                case .failure(let error):
-                                    self.setError("Failed to perform classification:", error)
-                                }
-                            }
-                        }
-                }
+        // guard let requests = trackingRequests, !requests.isEmpty else {
+        //     // No tracking object detected, so perform initial detection
+        //
+        //     return
+        // }
 
-                //                    DispatchQueue.main.async { [weak self] in
-                //                        // Add the observations to the tracking list
-                //                        self?.trackingRequests = results.map { observation in
-                //                            VNTrackObjectRequest(detectedObjectObservation: observation)
-                //                        }
-                //                    }
-            }])
-        } catch {
-            setError("Failed to perform FaceRectangleRequest:", error)
-        }
-
-        //        guard let requests = trackingRequests, !requests.isEmpty else {
-        //            // No tracking object detected, so perform initial detection
+        // do {
+        //     try sequenceRequestHandler.perform(requests, on: pixelBuffer)
+        // } catch {
+        //     setError("Failed to perform SequenceRequest:", error)
+        // }
         //
-        //            return
-        //        }
-
-        //        do {
-        //            try sequenceRequestHandler.perform(requests, on: pixelBuffer)
-        //        } catch {
-        //            setError("Failed to perform SequenceRequest:", error)
-        //        }
+        // // Setup the next round of tracking.
+        // var newTrackingRequests = [VNTrackObjectRequest]()
+        // for trackingRequest in requests {
+        //     guard let results = trackingRequest.results else {
+        //         return
+        //     }
         //
-        //        // Setup the next round of tracking.
-        //        var newTrackingRequests = [VNTrackObjectRequest]()
-        //        for trackingRequest in requests {
-        //            guard let results = trackingRequest.results else {
-        //                return
-        //            }
+        //     guard let observation = results[0] as? VNDetectedObjectObservation else {
+        //         return
+        //     }
         //
-        //            guard let observation = results[0] as? VNDetectedObjectObservation else {
-        //                return
-        //            }
-        //
-        //            if !trackingRequest.isLastFrame {
-        //                if observation.confidence > 0.3 {
-        //                    trackingRequest.inputObservation = observation
-        //                } else {
-        //                    trackingRequest.isLastFrame = true
-        //                }
-        //                newTrackingRequests.append(trackingRequest)
-        //            }
-        //        }
-        //        trackingRequests = newTrackingRequests
+        //     if !trackingRequest.isLastFrame {
+        //         if observation.confidence > 0.3 {
+        //             trackingRequest.inputObservation = observation
+        //         } else {
+        //             trackingRequest.isLastFrame = true
+        //         }
+        //         newTrackingRequests.append(trackingRequest)
+        //     }
+        // }
+        // trackingRequests = newTrackingRequests
     }
 
     private func setError(_ reason: String, _ error: Error) {
