@@ -69,7 +69,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             emotionalWindow = window
         }
 
-        let view = CurrentEmotionView(isHost: sender[0] as! Bool, session: sender[1] as! String)
+        let view = CurrentEmotionView(session: sender[1] as! String)
         emotionalWindow.contentView = NSHostingView(rootView: view)
         emotionalWindow!.makeKeyAndOrderFront(nil)
         NotificationCenter.default.post(name: .emotionalWindowOpen, object: nil)
