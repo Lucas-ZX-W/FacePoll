@@ -23,7 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     var window: NSWindow!
 
     var emotionalWindow: NSWindow!
-    var camWindow: NSWindow!
+    var aggregateWindow: NSWindow!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Firebase
@@ -63,7 +63,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             window.titleVisibility = .hidden
             window.center()
 
-            let view = FloatingBar(creatingNewSession: creatingNewSession)
+            let view = CurrentEmotionView(creatingNewSession: creatingNewSession)
             window.contentView = NSHostingView(rootView: view)
             window.isReleasedWhenClosed = false
             window.delegate = self
@@ -74,8 +74,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         emotionalWindow!.makeKeyAndOrderFront(nil)
     }
     
-    @objc func openCamWindow() {
-        if camWindow == nil { // create once !!
+    @objc func openAggregateWindow() {
+        if aggregateWindow == nil { // create once !!
             // Create the preferences window and set content
             let window = NSWindow(
                 contentRect: NSRect(x: -20, y: -20, width: 600, height: 80),
@@ -87,14 +87,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             window.level = .floating
             window.center()
 
-            let view = CamView()
+            let view = AggregateView()
             window.contentView = NSHostingView(rootView: view)
             window.isReleasedWhenClosed = false
             window.delegate = self
 
-            camWindow = window
+            aggregateWindow = window
         }
-        camWindow!.makeKeyAndOrderFront(nil)
+        aggregateWindow!.makeKeyAndOrderFront(nil)
     }
 
     func windowWillClose(_ notification: Notification) {

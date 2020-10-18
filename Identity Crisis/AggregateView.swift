@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CamView: View {
+struct AggregateView: View {
     @ObservedObject var fakeData = Aggregated(session: "hello", debug: true)
 
     var mainView: some View {
@@ -53,7 +53,7 @@ struct CamView: View {
 
 struct CamView_Previews: PreviewProvider {
     static var previews: some View {
-        CamView()
+        AggregateView()
     }
 }
 

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FloatingBar: View {
+struct CurrentEmotionView: View {
     let creatingNewSession: Bool
     @ObservedObject var camera = CameraInput()
 
@@ -62,8 +62,8 @@ struct FloatingBar: View {
 struct FloatingBar_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            FloatingBar(creatingNewSession: true)
-            FloatingBar(creatingNewSession: false)
+            CurrentEmotionView(creatingNewSession: true)
+            CurrentEmotionView(creatingNewSession: false)
         }
     }
 }

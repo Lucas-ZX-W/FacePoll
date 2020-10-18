@@ -72,6 +72,7 @@ struct CustomMainTabView: View {
         )
         .zIndex(99) // Raised so that shadow is visible above view backgrounds
     }
+
     public var body: some View {
         VStack(spacing: 0) {
             if tabBarPosition == .top {
@@ -90,8 +91,8 @@ struct CustomMainTabView: View {
     }
 }
 
-//struct CustomMainTabView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CustomMainTabView()
-//    }
-//}
+struct CustomMainTabView_Previews: PreviewProvider {
+    static var previews: some View {
+        CustomMainTabView(tabBarPosition: .top, content: [])
+    }
+}
