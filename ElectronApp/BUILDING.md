@@ -11,3 +11,5 @@ $ npm start
 ```
 
 `npm start` runs the application. `npm make` builds a release-ready version of the package!
+
+![A screenshot of the application](./Screenshots/03.png)
