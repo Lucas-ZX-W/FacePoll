@@ -1,4 +1,5 @@
 # FacePoll
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/Lucas-ZX-W/Identity-Crisis/blob/master/LICENSEs)
 
 ## Inspiration
 Don't you just love when professor asks a question in zoom meeting? 
