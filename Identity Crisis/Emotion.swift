@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum Emotion: Int, CaseIterable {
     case angry
@@ -40,6 +41,27 @@ extension Emotion: CustomStringConvertible {
             return "🙁"
         case .surprise:
             return "🤯"
+        }
+    }
+}
+
+extension Emotion {
+    var color: Color {
+        switch self {
+            case .angry:
+                return .red
+            case .disgust:
+                return .green
+            case .fear:
+                return .black
+            case .happy:
+                return .orange
+            case .neutral:
+                return .gray
+            case .sad:
+                return .blue
+            case .surprise:
+                return .yellow
         }
     }
 }

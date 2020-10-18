@@ -23,7 +23,7 @@ class Aggregated: ObservableObject {
             }
         }
         guard debug else { return }
-        timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { _ in
             // https://stackoverflow.com/a/8064754
             var nums = [0, 100]
             for _ in 0..<6 {
@@ -45,4 +45,5 @@ class Aggregated: ObservableObject {
     }
 
     @Published var reactions: [Emotion: Double] = [:]
+    @Published var fakeStats: [Emotion: Double] = [.angry: 0.2, .disgust: 0.1, .fear: 0.05, .happy: 0.01, .neutral: 0.09, .sad: 0.4, .surprise: 0.15]
 }

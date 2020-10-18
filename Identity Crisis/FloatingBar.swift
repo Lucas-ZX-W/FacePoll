@@ -14,28 +14,28 @@ struct FloatingBar: View {
     var body: some View {
         HStack() {
             if creatingNewSession {
-                Text(" Your participants' emotions:")
-                    .font(.system(size: 10))
+                Text("Your participants' emotions:")
+                    .font(.system(size: 20))
                     .fontWeight(.semibold)
             } else {
-                Text(" Your current emotion:")
-                    .font(.system(size: 10))
+                Text("Your current emotion:")
+                    .font(.system(size: 20))
                     .fontWeight(.semibold)
-            }
-            VStack {
-                Text(camera.emotion.description)
-                    .font(.system(size: 30))
-                if let error = camera.error {
-                    Text(error.localizedDescription)
+                VStack {
+                    Text(camera.emotion.description)
+                        .font(.system(size: 60))
+                    if let error = camera.error {
+                        Text(error.localizedDescription)
+                    }
+                }
+                .onAppear {
+                    camera.start()
+                }
+                .onDisappear {
+                    camera.stop()
                 }
             }
-            .onAppear {
-                camera.start()
-            }
-            .onDisappear {
-                camera.stop()
-            }
-        }.frame(idealWidth: .infinity, idealHeight: .infinity)
+        }.frame(idealWidth: 350, idealHeight: 120)
     }
 }
 

@@ -52,7 +52,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let chosenView = FloatingBar(creatingNewSession: creatingNewSession)
             // Create the preferences window and set content
             emotionalWindow = NSWindow(
-                contentRect: NSRect(x: 20, y: 20, width: 150, height: 80),
+                contentRect: NSRect(x: 20, y: 20, width: 350, height: 120),
                 styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
                 backing: .buffered,
                 defer: false)
@@ -71,7 +71,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let chosenView = CamView()
             // Create the preferences window and set content
             camWindow = NSWindow(
-                contentRect: NSRect(x: -20, y: -20, width: 300, height: 200),
+                contentRect: NSRect(x: -20, y: -20, width: 600, height: 80),
                 styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
                 backing: .buffered,
                 defer: false)
