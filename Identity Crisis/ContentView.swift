@@ -41,7 +41,7 @@ struct ContentView: View {
 //                })
                 Button(action: {
                     NSApp.sendAction(#selector(AppDelegate.openEmotionalWindow), to: nil, from:nil)
-                    NSApp.sendAction(#selector(AppDelegate.openCamWindow), to: nil, from:nil)
+//                    NSApp.sendAction(#selector(AppDelegate.openCamWindow), to: nil, from:nil)
                 }) {
                     Text("Create a session")
                         .font(.system(size: 20))
@@ -54,7 +54,7 @@ struct ContentView: View {
                 
                 Button(action: {
                     NSApp.sendAction(#selector(AppDelegate.openEmotionalWindow), to: nil, from:nil)
-                    NSApp.sendAction(#selector(AppDelegate.openCamWindow), to: nil, from:nil)
+//                    NSApp.sendAction(#selector(AppDelegate.openCamWindow), to: nil, from:nil)
                 }) {
                     Text("Join a session")
                         .font(.system(size: 20))

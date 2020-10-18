@@ -9,16 +9,33 @@ import SwiftUI
 
 struct FloatingBar: View {
     let creatingNewSession: Bool
-    
+    @ObservedObject var camera = CameraInput()
+
     var body: some View {
-        HStack {
+        HStack() {
             if creatingNewSession {
-                Text("Your participants' emotions:")
+                Text(" Your participants' emotions:")
+                    .font(.system(size: 10))
+                    .fontWeight(.semibold)
             } else {
-                Text("Your current emotion")
+                Text(" Your current emotion:")
+                    .font(.system(size: 10))
+                    .fontWeight(.semibold)
             }
-//            Text(Emotion(rawValue: ???))
-        }
+            VStack {
+                Text(camera.emotion.description)
+                    .font(.system(size: 30))
+                if let error = camera.error {
+                    Text(error.localizedDescription)
+                }
+            }
+            .onAppear {
+                camera.start()
+            }
+            .onDisappear {
+                camera.stop()
+            }
+        }.frame(idealWidth: .infinity, idealHeight: .infinity)
     }
 }
 
